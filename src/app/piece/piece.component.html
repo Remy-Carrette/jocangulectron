@@ -1,8 +1,7 @@
 <div
   class="draggable"
   cdkDrag
+  [ngClass]="color"
   [cdkDragFreeDragPosition]="dragPosition"
   (cdkDragEnded)="onEnded($event)"
->
-  Je suis draggable.
-</div>
+></div>

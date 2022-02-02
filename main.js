@@ -8,7 +8,8 @@ function createWindow() {
   win = new BrowserWindow({
     width: 600,
     height: 600,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#d4ffe8",
+    resizable: false,
   });
   const myURL = `file://${__dirname}/dist/jocangulectron/index.html`;
 

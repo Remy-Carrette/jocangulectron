@@ -7,17 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { PieceBleueComponent } from './piece-bleue/piece-bleue.component';
-import { PieceVerteComponent } from './piece-verte/piece-verte.component';
-import { PieceRougeComponent } from './piece-rouge/piece-rouge.component';
+
+import { PieceComponent } from './piece/piece.component';
+import { GoalComponent } from './goal/goal.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PieceBleueComponent,
-    PieceVerteComponent,
-    PieceRougeComponent,
-  ],
+  declarations: [AppComponent, PieceComponent, GoalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
