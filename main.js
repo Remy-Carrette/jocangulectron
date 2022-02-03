@@ -1,41 +1,37 @@
 const { app, BrowserWindow } = require("electron");
-const url = require("url");
 
 let win;
 
 function createWindow() {
-  // Create the browser window.
+  // Créer la fenêtre.
   win = new BrowserWindow({
-    width: 600,
+    width: 700,
     height: 600,
     backgroundColor: "#d4ffe8",
     resizable: false,
   });
-  const myURL = `file://${__dirname}/dist/jocangulectron/index.html`;
+  //Charge le point de départ de l'application.
+  win.loadURL(`file://${__dirname}/dist/jocangulectron/index.html`);
 
-  win.loadURL(myURL);
-  //// uncomment below to open the DevTools.
-  //win.webContents.openDevTools();
-
-  // Event when the window is closed.
+  //Action pour fermer la fenêtre de l'application.
   win.on("closed", function () {
     win = null;
   });
 }
 
-// Create window on electron initialization
+// Créer la fenêtre lors de l'initatialisation de l'application Electron.
 app.on("ready", createWindow);
 
-// Quit when all windows are closed.
+// Quitte l'apllciation lorsque toutes les fenêtres sont fermées.
 app.on("window-all-closed", function () {
-  // On macOS specific close process
+  // Fonctionnement spécifique à macOS.
   if (process.platform !== "darwin") {
     app.quit();
   }
 });
 
 app.on("activate", function () {
-  // macOS specific close process
+  // processus de recréation de la fenêtre d'applciation (specifique à macOS).
   if (win === null) {
     createWindow();
   }

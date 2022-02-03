@@ -8,11 +8,19 @@ import { MatSliderModule } from '@angular/material/slider';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
-import { PieceComponent } from './piece/piece.component';
-import { GoalComponent } from './goal/goal.component';
+import { PieceComponent } from './puzzle-game/piece/piece.component';
+import { GoalComponent } from './puzzle-game/goal/goal.component';
+import { PuzzleGameComponent } from './puzzle-game/puzzle-game.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, PieceComponent, GoalComponent],
+  declarations: [
+    AppComponent,
+    PieceComponent,
+    GoalComponent,
+    PuzzleGameComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
