@@ -66,13 +66,18 @@ export class PuzzleGameComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    // let startingGoalPosition = [100, 300, 500];
-    // const randomElement =
-    //   startingGoalPosition[
-    //     Math.floor(Math.random() * startingGoalPosition.length)
-    //   ];
-    // this.goalsSettings.red.left = randomElement;
-    // startingGoalPosition.splice(randomElement, 1);
+    this.randomize();
+  }
+
+  private randomize() {
+    let startingGoalPosition = [100, 300, 500];
+    for (let goal of this.goalsSettings) {
+      const randomElement = Math.floor(
+        Math.random() * startingGoalPosition.length
+      );
+      goal.position.x = startingGoalPosition[randomElement];
+      startingGoalPosition.splice(randomElement, 1);
+    }
   }
 
   /** Verifie si la pièce à été déposée au bon endroit. */
@@ -192,15 +197,6 @@ export class PuzzleGameComponent implements OnInit {
       this.isAllCorrect.green === true
     ) {
       this.GameFinished();
-      for (let setting of this.pieceSettings)
-        this.pieceLocationSubject.next({
-          position: { x: setting.position.x, y: setting.position.y },
-          color: setting.color,
-        });
-      this.isAllCorrect.blue =
-        this.isAllCorrect.green =
-        this.isAllCorrect.red =
-          false;
     }
   }
 
@@ -214,5 +210,15 @@ export class PuzzleGameComponent implements OnInit {
     this.dialog.open(ResultDialogComponent, {
       width: '400px',
     });
+
+    for (let setting of this.pieceSettings)
+      this.pieceLocationSubject.next({
+        position: { x: setting.position.x, y: setting.position.y },
+        color: setting.color,
+      });
+    this.isAllCorrect.blue =
+      this.isAllCorrect.green =
+      this.isAllCorrect.red =
+        false;
   }
 }

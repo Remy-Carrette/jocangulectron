@@ -19,21 +19,21 @@
 
 .blue {
   background: blue;
-  background-image: url(/assets/fan.png);
+  background-image: url("https://i.ibb.co/C5wt4WG/fan.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .red {
   background: red;
-  background-image: url(/assets/lion.png);
+  background-image: url("https://i.ibb.co/3BQT5fr/lion.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .green {
   background: LawnGreen;
-  background-image: url(/assets/hamster.png);
+  background-image: url("https://i.ibb.co/Zf1wx58/hamster.png");
   background-repeat: no-repeat;
   background-position: center;
 }

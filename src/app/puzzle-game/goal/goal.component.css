@@ -5,19 +5,19 @@
   width: 100px;
 }
 .blue {
-  background-image: url(/assets/fanGoal.png);
+  background-image: url("https://i.ibb.co/vsKbCYY/fanGoal.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .red {
-  background-image: url(/assets/lionGoal.png);
+  background-image: url("https://i.ibb.co/VxFMGR2/lionGoal.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .green {
-  background-image: url(/assets/hamsterGoal.png);
+  background-image: url("https://i.ibb.co/88NcBbt/hamster-Goal.png");
   background-repeat: no-repeat;
   background-position: center;
 }

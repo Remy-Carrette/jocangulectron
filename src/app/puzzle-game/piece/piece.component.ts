@@ -19,6 +19,7 @@ export class PieceComponent implements OnInit {
    * @param host Permet de récupérer les informations necessaire pour placer les pièce sur le plateau au demarrage et valider où non si une pièce à été placée au bon endroit.
    */
   constructor(private readonly host: PuzzleGameComponent) {
+    //Inscription au Subject qui permet de re positionnner les pièces.
     this.host.pieceLocationSubject.subscribe((v) => {
       let pieceToMoveSettings = v;
       if (this.color === pieceToMoveSettings.color) {
