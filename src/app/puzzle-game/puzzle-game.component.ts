@@ -34,50 +34,46 @@ export class PuzzleGameComponent implements OnInit {
 
   pieceLocationSubject = new Subject<pieceSettings>();
   /** Objet qui représente les paramètres de départ des cases sur lesquels on doit mettre les pièces */
-  goalsSettings = {
-    blue: {
-      top: 100,
-      left: 100,
-      'background-color': 'blue',
+  goalsSettings: pieceSettings[] = [
+    {
+      position: { x: 100, y: 100 },
+      color: 'blue',
     },
-    red: {
-      top: 100,
-      left: 300,
-      'background-color': 'red',
+    {
+      position: { x: 300, y: 100 },
+      color: 'red',
     },
-    green: {
-      top: 100,
-      left: 500,
-      'background-color': 'LawnGreen',
+    {
+      position: { x: 500, y: 100 },
+      color: 'green',
     },
-  };
+  ];
 
   /** Objet qui représente les paramètres de départ des pièces qui devront être déplacées. */
   pieceSettings: pieceSettings[] = [
     {
       color: 'red',
-      position: {
-        x: 100,
-        y: 400,
-      },
+      position: { x: 100, y: 400 },
     },
     {
       color: 'blue',
-      position: {
-        x: 500,
-        y: 400,
-      },
+      position: { x: 500, y: 400 },
     },
     {
       color: 'green',
-      position: {
-        x: 300,
-        y: 400,
-      },
+      position: { x: 300, y: 400 },
     },
   ];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // let startingGoalPosition = [100, 300, 500];
+    // const randomElement =
+    //   startingGoalPosition[
+    //     Math.floor(Math.random() * startingGoalPosition.length)
+    //   ];
+    // this.goalsSettings.red.left = randomElement;
+    // startingGoalPosition.splice(randomElement, 1);
+  }
 
   /** Verifie si la pièce à été déposée au bon endroit. */
   public checkIfPieceIsOnGoal(
@@ -85,20 +81,22 @@ export class PuzzleGameComponent implements OnInit {
       mouseDown: Point;
       endDropPoint: Point;
     },
-    goalLocation: { top: number; left: number; 'background-color': string }
+    goalLocation: pieceSettings
   ): boolean {
     if (
       piecePosition.endDropPoint.x - piecePosition.mouseDown.x <=
-        goalLocation.left + this.sizeOfGoal &&
+        goalLocation.position.x + this.sizeOfGoal &&
       piecePosition.endDropPoint.x + piecePosition.mouseDown.x >=
-        goalLocation.left &&
+        goalLocation.position.x &&
       piecePosition.endDropPoint.y - piecePosition.mouseDown.y <=
-        goalLocation.top + this.sizeOfGoal &&
+        goalLocation.position.y + this.sizeOfGoal &&
       piecePosition.endDropPoint.y + piecePosition.mouseDown.y >=
-        goalLocation.top
+        goalLocation.position.y
     ) {
+      console.log('good');
       return true;
     }
+
     return false;
   }
 
@@ -111,16 +109,19 @@ export class PuzzleGameComponent implements OnInit {
 
     switch (pieceInformations.pieceColor) {
       case 'red':
+        let redGoalIndex = this.goalsSettings.findIndex((element) => {
+          return element.color === 'red';
+        });
         if (
           this.checkIfPieceIsOnGoal(
             pieceInformations.piecePosition,
-            this.goalsSettings.red
+            this.goalsSettings[redGoalIndex]
           )
         ) {
           this.movePiece(
             {
-              x: this.goalsSettings.red.left,
-              y: this.goalsSettings.red.top,
+              x: this.goalsSettings[redGoalIndex].position.x,
+              y: this.goalsSettings[redGoalIndex].position.y,
             },
             'red'
           );
@@ -134,16 +135,19 @@ export class PuzzleGameComponent implements OnInit {
         }
         break;
       case 'green':
+        let greenGoalIndex = this.goalsSettings.findIndex((element) => {
+          return element.color === 'green';
+        });
         if (
           this.checkIfPieceIsOnGoal(
             pieceInformations.piecePosition,
-            this.goalsSettings.green
+            this.goalsSettings[greenGoalIndex]
           )
         ) {
           this.movePiece(
             {
-              x: this.goalsSettings.green.left,
-              y: this.goalsSettings.green.top,
+              x: this.goalsSettings[greenGoalIndex].position.x,
+              y: this.goalsSettings[greenGoalIndex].position.y,
             },
             'green'
           );
@@ -157,16 +161,19 @@ export class PuzzleGameComponent implements OnInit {
         }
         break;
       case 'blue':
+        let blueGoalIndex = this.goalsSettings.findIndex((element) => {
+          return element.color === 'blue';
+        });
         if (
           this.checkIfPieceIsOnGoal(
             pieceInformations.piecePosition,
-            this.goalsSettings.blue
+            this.goalsSettings[blueGoalIndex]
           )
         ) {
           this.movePiece(
             {
-              x: this.goalsSettings.blue.left,
-              y: this.goalsSettings.blue.top,
+              x: this.goalsSettings[blueGoalIndex].position.x,
+              y: this.goalsSettings[blueGoalIndex].position.y,
             },
             'blue'
           );
@@ -205,7 +212,7 @@ export class PuzzleGameComponent implements OnInit {
     });
   }
   public GameFinished() {
-    const dialogRef = this.dialog.open(ResultDialogComponent, {
+    this.dialog.open(ResultDialogComponent, {
       width: '400px',
     });
   }

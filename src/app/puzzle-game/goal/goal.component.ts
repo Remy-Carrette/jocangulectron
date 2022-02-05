@@ -19,33 +19,15 @@ export class GoalComponent implements OnInit {
   myStyle!: { top: string; left: string; 'background-color': string };
   /** Parmetrage des cases d'objectif en fonction de la color choisie. */
   ngOnInit(): void {
-    switch (this.color) {
-      case 'red':
+    for (const settings of this.host.goalsSettings) {
+      if (this.color === settings.color) {
         this.myStyle = {
-          top: this.host.goalsSettings['red'].top + 'px',
-          'background-color':
-            this.host.goalsSettings['red']['background-color'],
-          left: this.host.goalsSettings['red'].left + 'px',
+          left: settings.position.x + 'px',
+          top: settings.position.y + 'px',
+          'background-color': settings.color,
         };
-        break;
-
-      case 'blue':
-        this.myStyle = {
-          top: this.host.goalsSettings['blue'].top + 'px',
-          'background-color':
-            this.host.goalsSettings['blue']['background-color'],
-          left: this.host.goalsSettings['blue'].left + 'px',
-        };
-        break;
-
-      case 'green':
-        this.myStyle = {
-          top: this.host.goalsSettings['green'].top + 'px',
-          'background-color':
-            this.host.goalsSettings['green']['background-color'],
-          left: this.host.goalsSettings['green'].left + 'px',
-        };
-        break;
+        console.log(this.myStyle);
+      }
     }
   }
 }
