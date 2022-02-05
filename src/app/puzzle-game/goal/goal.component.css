@@ -4,3 +4,20 @@
   height: 100px;
   width: 100px;
 }
+.blue {
+  background-image: url(/assets/fanGoal.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.red {
+  background-image: url(/assets/lionGoal.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.green {
+  background-image: url(/assets/hamsterGoal.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}

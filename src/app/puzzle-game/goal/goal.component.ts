@@ -15,9 +15,7 @@ export class GoalComponent implements OnInit {
   constructor(private readonly host: PuzzleGameComponent) {}
   /** Permet de définir de quelle couleur sera la case objectif sera instanciée (voir dans le puzzle-game.component.html) */
   @Input() color!: 'red' | 'blue' | 'green';
-  /**
-   *
-   */
+
   myStyle!: { top: string; left: string; 'background-color': string };
   /** Parmetrage des cases d'objectif en fonction de la color choisie. */
   ngOnInit(): void {

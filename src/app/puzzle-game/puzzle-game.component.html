@@ -2,6 +2,19 @@
 <app-goal color="green"></app-goal>
 <app-goal color="red"></app-goal>
 
-<app-piece color="blue"></app-piece>
-<app-piece color="red"></app-piece>
-<app-piece color="green"></app-piece>
+<app-piece
+  (piecePlacedEvent)="recivePiecePosition($event)"
+  color="blue"
+></app-piece>
+<app-piece
+  (piecePlacedEvent)="recivePiecePosition($event)"
+  color="red"
+></app-piece>
+<app-piece
+  (piecePlacedEvent)="recivePiecePosition($event)"
+  color="green"
+></app-piece>
+
+<div class="center">
+  <button mat-raised-button routerLink="">Menu principal</button>
+</div>

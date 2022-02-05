@@ -1,7 +1,7 @@
 .draggable {
   width: 100px;
   height: 100px;
-  border: solid 2px #ccc;
+  border: solid 2px #000;
   cursor: move;
   display: flex;
   border-radius: 10px;
@@ -18,13 +18,22 @@
 }
 
 .blue {
-  background: rgba(8, 40, 222, 0.55);
+  background: blue;
+  background-image: url(/assets/fan.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .red {
-  background: rgba(222, 8, 8, 0.55);
+  background: red;
+  background-image: url(/assets/lion.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .green {
-  background: rgba(26, 222, 8, 0.55);
+  background: LawnGreen;
+  background-image: url(/assets/hamster.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }

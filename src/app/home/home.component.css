@@ -1,15 +1,10 @@
-button {
-  font-size: 14px;
-  margin-left: 8px;
-  min-width: 120px;
-}
-h1 {
-  clear: both;
-}
 .center {
   display: flex;
-  float: none;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 500px;
+}
+button {
+  margin: 10px;
 }
