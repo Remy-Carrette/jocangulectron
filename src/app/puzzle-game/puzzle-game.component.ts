@@ -33,6 +33,8 @@ export class PuzzleGameComponent implements OnInit {
   sizeOfGoal = 100;
 
   pieceLocationSubject = new Subject<pieceSettings>();
+
+  goalLocationSubject = new Subject<pieceSettings>();
   /** Objet qui représente les paramètres de départ des cases sur lesquels on doit mettre les pièces */
   goalsSettings: pieceSettings[] = [
     {
@@ -206,13 +208,19 @@ export class PuzzleGameComponent implements OnInit {
       color: color,
     });
   }
+
   public GameFinished() {
     this.dialog.open(ResultDialogComponent, {
       width: '400px',
     });
-
     for (let setting of this.pieceSettings)
       this.pieceLocationSubject.next({
+        position: { x: setting.position.x, y: setting.position.y },
+        color: setting.color,
+      });
+    this.randomize();
+    for (let setting of this.goalsSettings)
+      this.goalLocationSubject.next({
         position: { x: setting.position.x, y: setting.position.y },
         color: setting.color,
       });

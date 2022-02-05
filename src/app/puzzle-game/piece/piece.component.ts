@@ -27,7 +27,14 @@ export class PieceComponent implements OnInit {
       }
     });
   }
-
+  /** Lors de l'initialisation du composant, le choix de la color va définir sa position de départ */
+  ngOnInit(): void {
+    for (const settings of this.host.pieceSettings) {
+      if (this.color === settings.color) {
+        this.dragPosition = settings.position;
+      }
+    }
+  }
   /** Permet de définir de quelle couleur sera la pièce instanciée (voir dans le puzzle-game.componenet.html) */
   @Input() color!: 'red' | 'blue' | 'green';
 
@@ -46,14 +53,7 @@ export class PieceComponent implements OnInit {
     this.mouseDown.x = e.offsetX;
     this.mouseDown.y = e.offsetY;
   }
-  /** Lors de l'initialisation du composant, le choix de la color va définir sa position de départ */
-  ngOnInit(): void {
-    for (const settings of this.host.pieceSettings) {
-      if (this.color === settings.color) {
-        this.dragPosition = settings.position;
-      }
-    }
-  }
+
   /**
    * Se déclenche lorsque l'on à fini le drag and drop.
    * @param end evenement retourné par la propriété cdkDragEnded qui permet de récupérer les coordonnées du pointeur ou le lacher du drag and drop à été effectué.
