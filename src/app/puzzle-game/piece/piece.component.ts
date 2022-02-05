@@ -18,7 +18,14 @@ export class PieceComponent implements OnInit {
   /**
    * @param host Permet de récupérer les informations necessaire pour placer les pièce sur le plateau au demarrage et valider où non si une pièce à été placée au bon endroit.
    */
-  constructor(private readonly host: PuzzleGameComponent) {}
+  constructor(private readonly host: PuzzleGameComponent) {
+    this.host.pieceLocationSubject.subscribe((v) => {
+      let pieceToMoveSettings = v;
+      if (this.color === pieceToMoveSettings.color) {
+        this.dragPosition = pieceToMoveSettings.position;
+      }
+    });
+  }
 
   /** Permet de définir de quelle couleur sera la pièce instanciée (voir dans le puzzle-game.componenet.html) */
   @Input() color!: 'red' | 'blue' | 'green';
@@ -68,14 +75,5 @@ export class PieceComponent implements OnInit {
     pieceInformations.piecePosition.mouseDown = this.mouseDown;
     pieceInformations.piecePosition.endDropPoint = end.dropPoint;
     this.piecePlacedEvent.emit(pieceInformations);
-
-    this.host.pieceLocationSubject.subscribe({
-      next: (v) => {
-        let pieceToMoveSettings = v;
-        if (this.color === pieceToMoveSettings.color) {
-          this.dragPosition = pieceToMoveSettings.position;
-        }
-      },
-    });
   }
 }

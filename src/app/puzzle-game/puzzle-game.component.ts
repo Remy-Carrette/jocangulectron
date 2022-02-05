@@ -93,7 +93,6 @@ export class PuzzleGameComponent implements OnInit {
       piecePosition.endDropPoint.y + piecePosition.mouseDown.y >=
         goalLocation.position.y
     ) {
-      console.log('good');
       return true;
     }
 

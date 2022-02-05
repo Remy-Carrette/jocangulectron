@@ -26,7 +26,6 @@ export class GoalComponent implements OnInit {
           top: settings.position.y + 'px',
           'background-color': settings.color,
         };
-        console.log(this.myStyle);
       }
     }
   }
