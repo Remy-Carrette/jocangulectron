@@ -8,7 +8,11 @@ function createWindow() {
     width: 700,
     height: 600,
     backgroundColor: "#d4ffe8",
+    icon: `file://${__dirname}/dist/jocangulectron/assets/fan.png`,
     resizable: false,
+    webPreferences: {
+      nodeIntegration: true,
+    },
   });
   //Charge le point de départ de l'application.
   win.loadURL(`file://${__dirname}/dist/jocangulectron/index.html`);

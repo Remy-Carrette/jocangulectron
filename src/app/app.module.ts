@@ -15,6 +15,8 @@ import { PuzzleGameComponent } from './puzzle-game/puzzle-game.component';
 import { HomeComponent } from './home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ResultDialogComponent } from './puzzle-game/result-dialog/result-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { VolumeButtonComponent } from './volume-button/volume-button.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { ResultDialogComponent } from './puzzle-game/result-dialog/result-dialog
     PuzzleGameComponent,
     HomeComponent,
     ResultDialogComponent,
+    VolumeButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { ResultDialogComponent } from './puzzle-game/result-dialog/result-dialog
     DragDropModule,
     MatButtonModule,
     MatDialogModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

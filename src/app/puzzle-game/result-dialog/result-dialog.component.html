@@ -1,10 +1,20 @@
 <div class="center">
   <h1 mat-dialog-title>Bravo tu as réussi !</h1>
   <div mat-dialog-actions>
-    <button mat-button (click)="closeDialog()" routerLink="/puzzle-game">
+    <button
+      mat-raised-button
+      (click)="closeDialog()"
+      routerLink="/puzzle-game"
+      color="accent"
+    >
       Rejouer
     </button>
-    <button mat-button (click)="closeDialog()" routerLink="">
+    <button
+      mat-raised-button
+      (click)="closeDialog()"
+      routerLink=""
+      color="accent"
+    >
       Retourner au menu princiapl
     </button>
   </div>
