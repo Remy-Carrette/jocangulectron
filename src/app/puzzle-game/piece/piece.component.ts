@@ -1,14 +1,12 @@
-import { CdkDragEnd, CdkDragStart, Point } from '@angular/cdk/drag-drop';
+import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, HostListener, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { from } from 'rxjs';
+
 import {
   PieceInformations,
   PuzzleGameComponent,
 } from '../puzzle-game.component';
-/**
- * Représente les pièces déplacable par l'utilisateur.
- */
+/** Composant qui représente les pièces déplacable par l'utilisateur.*/
 @Component({
   selector: 'app-piece',
   templateUrl: './piece.component.html',

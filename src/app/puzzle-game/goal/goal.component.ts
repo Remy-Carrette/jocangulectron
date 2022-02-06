@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PuzzleGameComponent } from '../puzzle-game.component';
-/**
- * Composant qui représente la destination d'un pièce.
- */
+/** Composant qui représente les socles sur lesquels les pièces doivent aller. */
 @Component({
   selector: 'app-goal',
   templateUrl: './goal.component.html',
@@ -27,7 +25,7 @@ export class GoalComponent implements OnInit {
 
   /** Parmetrage des cases d'objectif en fonction de la color choisie. */
   ngOnInit(): void {
-    for (const settings of this.host.goalsSettings) {
+    for (const settings of this.host.goalSettings) {
       if (this.color === settings.color) {
         this.myStyle = {
           left: settings.position.x + 'px',
